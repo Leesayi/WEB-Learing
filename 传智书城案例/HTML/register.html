@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单校验</title>
+</head>
+
+<body>
+    <h3>注册页面</h3>
+    <form action="registersuccess.html" method="GET" onsubmit="return checkForm()">
+        用户名：
+        <input type="text" name="username" id="usernameId" onkeyup="checkName()">
+        <span id="usernameMsg"></span><br /><br />
+        密码：
+        <input type="password" name="password" id="passwordId" onkeyup="checkPassword()">
+        <span id="passwordMsg"></span><br /><br />
+        手机号：
+        <input type="text" name="phone" id="phoneId" onkeyup="checkPhone()">
+        <span id="phoneMsg"></span><br /><br />
+
+        <input type="submit" value="注册">
+
+    </form>
+</body>
+
+<script type="text/javascript">
+    /*表单校验*/
+    //定义全局变量
+    var usernameObj;
+    var passwordObj;
+    var phoneObj;
+    var usernameMsg;
+    var passwordMsg;
+    var phoneMsg;
+    //获取标记对象
+    window.onload = function () {
+        //获取输入控件的的标记对象
+        usernameObj = document.getElementById("usernameId");
+        passwordObj = document.getElementById("passwordId");
+        phoneObj = document.getElementById("phoneId");
+        //获取错误信息的标记对象
+        usernameMsg = document.getElementById("usernameMsg");
+        passwordMsg = document.getElementById("passwordMsg");
+        phoneMsg = document.getElementById("phoneMsg");
+    }
+    function checkForm() {
+        var usernameFlag = checkName();
+        var passwordFlag = checkPassword();
+        var phoneFlag = checkPhone();
+        return usernameFlag && passwordFlag && phoneFlag;
+    }
+    //校验用户名
+    function checkName() {
+        //获取用户名
+        var value = usernameObj.value;
+        //创建正则表达式
+        var regex = /^[a-zA-Z]\w{3,6}$/; //用户名以不分大小写的字母开始，包含字母数字下划线，长度是4-7位
+        //校验
+        if (value == "") {
+            usernameMsg.innerHTML = "用户名必须填写";
+            return false;
+        }
+        else if (!regex.test(value)) {
+            usernameMsg.innerHTML = "用户名不区分大小写，包含字母数字下划线，长度是4-7位"
+            return false;
+        }
+        else {
+            usernameMsg.innerHTML = "";
+            return true;
+        }
+    }
+    function checkPassword() {
+        //获取用户名
+        var value = passwordObj.value;
+        //创建正则表达式
+        var regex = /^[a-zA-Z0-9]{3,6}$/; //密码是字母和数字组成，长度是3-6位
+        //校验
+        if (!value) {
+            passwordMsg.innerHTML = "密码不能为空";
+            return false;
+        }
+        else if (!regex.test(value)) {
+            passwordMsg.innerHTML = "密码是字母和数字组成，长度是3-6位"
+            return false;
+        }
+        else {
+            passwordMsg.innerHTML = "";
+            return true;
+        }
+    }
+    function checkPhone() {
+        //获取用户名
+        var value = phoneObj.value;
+        //创建正则表达式
+        var regex = /^1[3|5|7|8][0-9]{9}$/; //手机号是1开头，第二位是3 || 5 || 7 || 8 ，后面9位任意
+        //校验
+        if (!value) {
+            phoneMsg.innerHTML = "手机号不能为空";
+            return false;
+        }
+        else if (!regex.test(value)) {
+            phoneMsg.innerHTML = "手机号不符合规范"
+            return false;
+        }
+        else {
+            phoneMsg.innerHTML = "";
+            return true;
+        }
+    }
+
+</script>
+
+</html>
