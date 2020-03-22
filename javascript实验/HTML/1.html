@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Leesayi 209 " />
+    <title>自动问候</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    var Mydate = new Date();//创建时间对象
+    var hours = Mydate.getHours();//调用时间对象的getHours（）方法把当前小时数存储在变量hours中
+    // document.write(hours);
+
+    //利用条件判断语句 根据不同的hours值打印出不同的问候语句
+    if (hours > 22 && hours < 23 || hours >= 0 && hours <= 5) {
+        document.write("现在是休息时间哦");
+    }
+    else if (hours >= 6 && hours <= 9) {
+        document.write("早上好")
+    }
+    else if (hours >= 10 && hours <= 12) {
+        document.write("中午好")
+    }
+    else if (hours >= 13 && hours <= 18) {
+        document.write("下午好")
+    }
+    else if (hours >= 19 && hours <= 21) {
+        document.write("晚上好")
+    }
+</script>
+
+</html>

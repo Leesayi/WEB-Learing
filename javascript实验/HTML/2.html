@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../js/Js2.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/2.css">
+    <meta name="author" content="Leesayi 209 " />
+    <title>表单校验</title>
+</head>
+
+<body>
+    <form action="" id="myform">
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="text" id="password"></td>
+            </tr>
+            <tr>
+                <td>确认密码：</td>
+                <td><input type="text" id="repassword"></td>
+            </tr>
+            <tr>
+                <td>性别：</td>
+                <td>
+                    <input type="radio" name="man" id="man" value="man" /><label for="man">男</label>
+                    <input type="radio" name="man" id="women" value="woman" /><label for="woman">女</label>
+                </td>
+            </tr>
+            <tr>
+                <td>年龄：</td>
+                <td><input type="text" id="age"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="button" value="提 交" onclick="check()"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
